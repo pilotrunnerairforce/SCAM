@@ -21,7 +21,7 @@
       border-radius: 25px;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      max-width: 400px;
+      max-width: 420px;
       animation: pop 1s ease;
       z-index: 2;
     }
@@ -33,7 +33,6 @@
 
     p {
       color: #555;
-      margin-bottom: 15px;
     }
 
     .heart {
@@ -98,31 +97,51 @@
       to { transform: translateY(-10vh); opacity: 0; }
     }
 
-    .message {
+    .love-letter {
       display: none;
-      font-size: 1.4rem;
-      color: #ff2e63;
-      margin-top: 15px;
+      margin-top: 20px;
+      font-size: 1.05rem;
+      color: #444;
+      line-height: 1.5;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <div class="card" id="card">
+  <div class="card">
     <div class="heart">❤️</div>
-    <h1>Will you be my Valentine,<br>Marina Haddad?</h1>
-    <p>You make my heart smile every single day.</p>
+
+    <h1 id="question">
+      Will you be my Valentine,<br>Marina Haddad?
+    </h1>
+
+    <p id="subtext">You make my heart smile every single day.</p>
 
     <img src="https://media.giphy.com/media/l4pTdcifPZLpDjL1e/giphy.gif" alt="cute love gif">
 
-    <div class="buttons">
+    <div class="buttons" id="buttons">
       <button id="yes">💌 YES</button>
       <button id="no">🙈 NO</button>
     </div>
 
-    <div class="message" id="message">
-      💖 Yay!! I knew it 💖<br>
-      You’re my forever Valentine 😘
+    <div class="love-letter" id="letter">
+      My honey money, my dearest Marina,<br><br>
+
+      Thank you for being the most amazing, wonderful, authentic, and incredible
+      girlfriend ever. You truly are one of a kind. I’m so happy you accepted my
+      Valentine’s proposal — it means the world to me.<br><br>
+
+      You’re such a caring, kind-hearted, and unique soul. You thrive off making
+      others happy, and you deserve every single blessing this world has to offer,
+      baby. I love you so much, my Marina. ❤️<br><br>
+
+      <strong>PS. Shaanyyyyyy</strong>
     </div>
   </div>
 
@@ -133,24 +152,5 @@
       heart.className = "floating-heart";
       heart.innerHTML = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 15 + "px";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 250);
+      heart.style.fontSize = Math.random()
 
-    // NO button runs away
-    const noBtn = document.getElementById("no");
-    noBtn.addEventListener("mouseover", () => {
-      noBtn.style.left = Math.random() * 200 - 100 + "px";
-      noBtn.style.top = Math.random() * 200 - 100 + "px";
-    });
-
-    // YES button celebration
-    document.getElementById("yes").onclick = () => {
-      document.getElementById("message").style.display = "block";
-    };
-  </script>
-
-</body>
-</html>
